@@ -58,7 +58,7 @@ func SignInUser(c *gin.Context) {
 	var user models.User
 	result := database.DB.Db.Where("email = ?", input.Email).First(&user)
 	if result.Error != nil {
-		c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid credentials"})
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Incorrect Email"})
 		return
 	}
 
